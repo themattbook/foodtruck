@@ -122,6 +122,17 @@ export default({ config, db }) => {
       });
     });
 
+    // Get reviews
+    // '/v1/reviews'
+    api.get('/reviews/read', (req, res) => {
+      Reviews.find({}, (err, reviews) => {
+        if (err) {
+          res.send(err);
+        }
+        res.json(reviews);
+      });
+    });
+
     // get reviews for a specific food truck id
     // '/v1/foodtruck/reviews/:id'
     api.get('/reviews/:id', (req, res) => {
